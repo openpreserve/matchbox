@@ -3,7 +3,7 @@ compiler:
   - gcc
 before_install:
   - #sudo apt-get install libboost-all-dev libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
-  - wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz/download?use_mirror=kent&use_mirror=kent
+  - curl -L -O http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz/download?use_mirror=kent&use_mirror=kent
   - tar zxf opencv-2.4.6.1.tar.gz
   - cd opencv-2.4.6.1
   - mkdir build
