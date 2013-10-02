@@ -1,10 +1,8 @@
 language: cpp
 compiler:
   - gcc
-before_install:
-  - wget -O opencv-2.4.6.1.tar.gz http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz/download?use_mirror=kent&use_mirror=kent
 install:
-  - tar zxf opencv-2.4.6.1.tar.gz
+  - wget -O opencv-2.4.6.1.tar.gz http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz && tar zxf opencv-2.4.6.1.tar.gz
   - cd opencv-2.4.6.1
   - mkdir build
   - cd build
