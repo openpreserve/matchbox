@@ -2,7 +2,7 @@ language: cpp
 compiler:
   - gcc
 before_install:
-  - sudo apt-get install libboost-all-dev libopencv-dev libcv-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
+  - sudo apt-get install libboost-all-dev libopencv-dev libcv-dev libhighgui-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
 before_script:
   - mkdir build && cd build
   - cmake ..
