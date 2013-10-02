@@ -3,20 +3,23 @@ compiler:
   - gcc
 install:
 # We will install these headers as we need boost.  The opencv packages aren't currently used but kept here for future use
-  - sudo apt-get install libboost-all-dev libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
+# opencv ubuntu packages: libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
+# remove the above packages so FindOpenCV.cmake doesn't get confuseds
+  - sudo apt-get remove libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
+  - sudo apt-get install libboost-all-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
 # Extracting the tar file has to be on the same line as the download!
   - wget -O opencv-2.4.6.1.tar.gz http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz && tar zxf opencv-2.4.6.1.tar.gz
+  - mkdir opencv-bin
   - cd opencv-2.4.6.1
   - mkdir build
   - cd build
-  - mkdir ../../opencv
-  - cmake .. -DCMAKE_INSTALL_PREFIX=../../opencv
+  - cmake .. -DCMAKE_INSTALL_PREFIX=../../opencv-bin
   - make
   - make install
   - cd ../..
 before_script:
   - mkdir build
   - cd build
-  - cmake .. -DOpenCV_DIR=../opencv
+  - cmake .. -DOpenCV_DIR=../opencv-bin/
 script: 
   - make
