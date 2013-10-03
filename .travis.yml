@@ -21,6 +21,7 @@ before_script:
   - mkdir build
   - cd build
 # This is the path to the installed OpenCVConfig.cmake
-  - cmake .. -DOpenCV_DIR=../opencv-bin/share/OpenCV/
+# NOTE: a *full* path to the file should be passed to cmake, hence the addition of `pwd`
+  - cmake .. -DOpenCV_DIR=`pwd`/../../opencv-bin/share/OpenCV/
 script: 
   - make
