@@ -6,11 +6,12 @@ install:
 # opencv ubuntu packages: libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
 # remove the above packages so FindOpenCV.cmake doesn't get confuseds
   - sudo apt-get remove libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
-  - sudo apt-get install libboost-all-dev zlib1g-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libgtk2.0-dev
+  - sudo apt-get install libboost-all-dev zlib1g-dev libjpeg8-dev libpng12-dev libtiff4-dev libjasper-dev libgtk2.0-dev python-numpy libopenexr-dev
+  - OPENCVVER=2.4.6.1
 # Extracting the tar file has to be on the same line as the download!
-  - wget -O opencv-2.4.6.1.tar.gz http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.6.1/opencv-2.4.6.1.tar.gz && tar zxf opencv-2.4.6.1.tar.gz
+  - wget -O opencv-${OPENCVVER}.tar.gz http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/${OPENCVVER}/opencv-${OPENCVVER}.tar.gz && tar zxf opencv-${OPENCVVER}.tar.gz
   - mkdir opencv-bin
-  - cd opencv-2.4.6.1
+  - cd opencv-$OPENCVVER
   - mkdir build
   - cd build
   - cmake .. -DCMAKE_INSTALL_PREFIX=../../opencv-bin

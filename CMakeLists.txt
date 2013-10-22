@@ -44,7 +44,6 @@ INCLUDE(InstallRequiredSystemLibraries)
 # WP - this is the default installation path for the .deb
 # NOTE: this should not currently be /usr/ as the binary names
 # conflict with ImageMagick
-
 set(DEB_INSTALL_DIR                "/usr/local/")
 
 SET(CPACK_PACKAGE_VERSION_MAJOR    "${MAJOR_VERSION}")
@@ -52,8 +51,8 @@ SET(CPACK_PACKAGE_VERSION_MINOR    "${MINOR_VERSION}")
 SET(CPACK_PACKAGE_VERSION_PATCH    "${PATCH_VERSION}")
 set(CPACK_PACKAGE_VERSION          "${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
 
-# WP - this list is based on the libraries detected by Travis CI
-set(DEB_DEPENDS "zlib1g, python (>=2.7), python-numpy, libjpeg8, libjpeg62, libtiff4, libpng12-0, libjasper1, openexr")
+# WP - this list is based on the libraries detected by cmake in Travis CI and other additional known dependencies
+set(DEB_DEPENDS "zlib1g, python (>=2.7), python-numpy, libjpeg8, libtiff4, libpng12-0, libjasper1, libopenexr6")
 
 IF (withLibs)
 	SET(CPACK_PACKAGE_NAME             "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}_incl_libs")
