@@ -11,4 +11,4 @@ add_library(DPQAlib SHARED ${DPQAlibSrcs})
 target_link_libraries(DPQAlib ${OpenCV_LIBRARIES})
 target_link_libraries(DPQAlib ${Boost_LIBRARIES})
 
-install(TARGETS DPQAlib DESTINATION lib)
+install(TARGETS DPQAlib DESTINATION ${DEB_INSTALL_DIR}/lib)

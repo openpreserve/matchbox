@@ -14,4 +14,4 @@ target_link_libraries(compare ${OpenCV_LIBS} DPQAlib)
 target_link_libraries(compare ${OpenCV_LIBS})
 target_link_libraries(compare ${Boost_LIBRARIES})
 
-install(TARGETS compare DESTINATION bin)
+install(TARGETS compare DESTINATION ${DEB_INSTALL_DIR}/bin)

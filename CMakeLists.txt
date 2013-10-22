@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 # === Project specific parameters
 
-project(MatchboxTools)
+project(scape-matchbox)
 
 SET(MAJOR_VERSION 1)
 SET(MINOR_VERSION 0)
@@ -12,9 +12,11 @@ SET(PATCH_VERSION 0)
 # === global build parameters
 
 SET(BUILD_SHARED_LIBS ON)
+
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive ")
 
-option(withLibs "withLibs" OFF)
+# WP - force this option on (only relevant when building .deb)
+option(withLibs "withLibs" ON)
 
 # === find and add required ressources
 
@@ -39,34 +41,40 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
 INCLUDE(InstallRequiredSystemLibraries)
 
+# WP - this is the default installation path for the .deb
+# NOTE: this should not currently be /usr/ as the binary names
+# conflict with ImageMagick
+
+set(DEB_INSTALL_DIR                "/usr/local/")
+
 SET(CPACK_PACKAGE_VERSION_MAJOR    "${MAJOR_VERSION}")
 SET(CPACK_PACKAGE_VERSION_MINOR    "${MINOR_VERSION}")
 SET(CPACK_PACKAGE_VERSION_PATCH    "${PATCH_VERSION}")
+set(CPACK_PACKAGE_VERSION          "${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
+
+# WP - this list is based on the libraries detected by Travis CI
+set(DEB_DEPENDS "zlib1g, python (>=2.7), python-numpy, libjpeg8, libjpeg62, libtiff4, libpng12-0, libjasper1, openexr")
 
 IF (withLibs)
-
-	set(CPACK_PACKAGE_VERSION          "${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
 	SET(CPACK_PACKAGE_NAME             "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}_incl_libs")
 	SET(CPACK_PACKAGE_FILE_NAME        "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}_incl_libs")
 	SET(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}_incl_libs")
-	SET(CPACK_DEBIAN_PACKAGE_DEPENDS   ">=python2.6, python-numpy, python-opencv, libjpeg62")
-
+	SET(CPACK_DEBIAN_PACKAGE_DEPENDS    ${DEB_DEPENDS})
 ELSE (withLibs)
-
-	set(CPACK_PACKAGE_VERSION          "${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
+# WP - this won't work as Matchbox currently relies on features in OpenCV that are not packaged by Debian/Ubuntu
 	SET(CPACK_PACKAGE_NAME             "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
 	SET(CPACK_PACKAGE_FILE_NAME        "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
 	SET(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
-	SET(CPACK_DEBIAN_PACKAGE_DEPENDS   ">=libcv2.4.4, python2.7, python-numpy, python-opencv, libjpeg62")
-
+# WP - list additional OpenCV package dependencies here
+	SET(CPACK_DEBIAN_PACKAGE_DEPENDS   "libcv2.4.4,python-opencv," ${DEB_DEPENDS})
 ENDIF (withLibs)
-
 
 SET(CPACK_PACKAGE_DESCRIPTION         "Matchbox Tools")
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The SCAPE Matchbox Toolbox is a toolset for detecting duplicate entires in document image collections.")
 SET(CPACK_PACKAGE_VENDOR              "Austrian Institute of Technology AIT")
 SET(CPACK_PACKAGE_CONTACT             "alexander.schindler@ait.ac.at")
 
+SET(CPACK_RESOURCE_FILE_README        ${CMAKE_CURRENT_SOURCE_DIR}/README.txt)
 
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY     "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION      "tools")
@@ -82,25 +90,21 @@ ENDIF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
 
 # === add additional files to package
 
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/Python/FindDuplicates.py DESTINATION /usr/bin/)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/Python/MatchboxLib.py DESTINATION /usr/bin/)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/Python/FindDuplicates.py DESTINATION ${DEB_INSTALL_DIR}/bin/)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/Python/MatchboxLib.py DESTINATION ${DEB_INSTALL_DIR}/bin/)
 
 IF (withLibs)
-	FILE(GLOB my_opencv_libs /usr/local/lib/libopencv_*.so.2.4.*)
-	IF(my_opencv_libs)
-		foreach(_ml ${my_opencv_libs})
-			message(STATUS ${_ml})
-			INSTALL(FILES ${_ml} DESTINATION /usr/lib/)
+	SET(DEB_OPENCV "")
+	foreach(_ml ${OpenCV_LIB_DIR})
+		FILE(GLOB MYOPENCV ${_ml}/libopencv_*.so*)
+		set(DEB_OPENCV ${DEB_OPENCV} ${MYOPENCV})
+	endforeach()
+	IF(DEB_OPENCV)
+		foreach(_ml ${DEB_OPENCV})
+			INSTALL(FILES ${_ml} DESTINATION ${DEB_INSTALL_DIR}/lib/)
 		endforeach(_ml)
-	ENDIF(my_opencv_libs)
+	ENDIF()
 
-	FILE(GLOB my_opencv_libs /usr/local/lib/libopencv_*.so.2.4)
-	IF (my_opencv_libs)
-		foreach(_ml ${my_opencv_libs})
-			message(STATUS ${_ml})
-			INSTALL(FILES ${_ml} DESTINATION /usr/lib/)
-		endforeach(_ml)
-	ENDIF(my_opencv_libs)
 ENDIF (withLibs)
 
 # === add sub-projects for compilation

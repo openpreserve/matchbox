@@ -13,4 +13,4 @@ target_link_libraries(extractfeatures DPQAlib)
 target_link_libraries(extractfeatures ${Boost_LIBRARIES})
 target_link_libraries(extractfeatures ${OpenCV_LIBS})
 
-install(TARGETS extractfeatures DESTINATION bin)
+install(TARGETS extractfeatures DESTINATION ${DEB_INSTALL_DIR}/bin)

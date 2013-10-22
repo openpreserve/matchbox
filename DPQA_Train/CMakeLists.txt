@@ -14,4 +14,4 @@ target_link_libraries(train DPQAlib)
 target_link_libraries(train ${OpenCV_LIBS})
 target_link_libraries(train ${Boost_LIBRARIES})
 
-install(TARGETS train DESTINATION bin)
+install(TARGETS train DESTINATION ${DEB_INSTALL_DIR}/bin)
