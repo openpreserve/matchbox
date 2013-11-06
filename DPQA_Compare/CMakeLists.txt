@@ -8,10 +8,12 @@ include_directories(${CMAKE_SOURCE_DIR}/DPQAlib)
 FILE (GLOB DPQA_Compare_FILES  *.cpp)
 set(DPQA_Compare_SRC ${DPQA_Compare_FILES})
 
-add_executable(compare ${DPQA_Compare_SRC})
+set(COMPBIN "mb_compare")
 
-target_link_libraries(compare ${OpenCV_LIBS} DPQAlib)
-target_link_libraries(compare ${OpenCV_LIBS})
-target_link_libraries(compare ${Boost_LIBRARIES})
+add_executable(${COMPBIN} ${DPQA_Compare_SRC})
 
-install(TARGETS compare DESTINATION ${DEB_INSTALL_DIR}/bin)
+target_link_libraries(${COMPBIN} ${OpenCV_LIBS} DPQAlib)
+target_link_libraries(${COMPBIN} ${OpenCV_LIBS})
+target_link_libraries(${COMPBIN} ${Boost_LIBRARIES})
+
+install(TARGETS ${COMPBIN} DESTINATION ${DEB_INSTALL_DIR}/bin)

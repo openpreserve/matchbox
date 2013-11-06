@@ -44,7 +44,7 @@ INCLUDE(InstallRequiredSystemLibraries)
 # WP - this is the default installation path for the .deb
 # NOTE: this should not currently be /usr/ as the binary names
 # conflict with ImageMagick
-set(DEB_INSTALL_DIR                "/usr/local/")
+set(DEB_INSTALL_DIR                "/usr/")
 
 SET(CPACK_PACKAGE_VERSION_MAJOR    "${MAJOR_VERSION}")
 SET(CPACK_PACKAGE_VERSION_MINOR    "${MINOR_VERSION}")

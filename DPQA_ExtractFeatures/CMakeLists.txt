@@ -7,10 +7,12 @@ include_directories(${CMAKE_SOURCE_DIR}/DPQAlib)
 FILE (GLOB DPQA_Extract_FILES  *.cpp)
 set(DPQA_Extract_SRC ${DPQA_Extract_FILES})
 
-add_executable(extractfeatures ${DPQA_Extract_SRC})
+set(EFBIN "mb_extractfeatures")
 
-target_link_libraries(extractfeatures DPQAlib)
-target_link_libraries(extractfeatures ${Boost_LIBRARIES})
-target_link_libraries(extractfeatures ${OpenCV_LIBS})
+add_executable(${EFBIN} ${DPQA_Extract_SRC})
 
-install(TARGETS extractfeatures DESTINATION ${DEB_INSTALL_DIR}/bin)
+target_link_libraries(${EFBIN} DPQAlib)
+target_link_libraries(${EFBIN} ${Boost_LIBRARIES})
+target_link_libraries(${EFBIN} ${OpenCV_LIBS})
+
+install(TARGETS ${EFBIN} DESTINATION ${DEB_INSTALL_DIR}/bin)

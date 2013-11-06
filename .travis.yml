@@ -30,9 +30,9 @@ script:
   - cpack
 after_success:
   - sudo dpkg -i scape-matchbox*deb
-  - ldd /usr/local/bin/extractfeatures
-  - LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/extractfeatures --help
-  - ldd /usr/local/bin/compare
-  - LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/compare --help
-  - ldd /usr/local/bin/train
-  - LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/train --help
+  - ldd /usr/bin/mb_extractfeatures
+  - /usr/bin/mb_extractfeatures --help
+  - ldd /usr/bin/mb_compare
+  - /usr/bin/mb_compare --help
+  - ldd /usr/bin/mb_train
+  - /usr/bin/mb_train --help
