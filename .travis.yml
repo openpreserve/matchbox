@@ -3,13 +3,14 @@ compiler:
   - gcc
 before_install:
 # not using OpenCV 2.4.7.exe as it does not include mingw libs
-  - wget http://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.4.6/OpenCV-2.4.6.0.exe/download
+  - OPENCVEXE=OpenCV-2.4.6.0.exe
+  - wget -O $OPENCVEXE http://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.4.6/$OPENCVEXE/download
   - wget ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/boost/libboost1.53/libboost1.53-1.53.0-2.tar.bz2
   - wget ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/boost/libboost-devel/libboost-devel-1.53.0-2.tar.bz2
 # will probably need other libraries
   - sudo apt-get install p7zip
 install:
-  - p7zip -d OpenCV-2.4.6.0.exe
+  - p7zip -d $OPENCVEXE
   - cp -rf build/include/ /usr/i586-mingw32msvc/
   - cp -rf build/x86/mingw/* /usr/i586-mingw32msvc/
   - sudo apt-get update
