@@ -15,6 +15,9 @@ SET(BUILD_SHARED_LIBS ON)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive ")
 
+SET(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -static-libgcc -static-libstdc++")
+SET(CMAKE_C_LINK_EXECUTABLE "${CMAKE_C_LINK_EXECUTABLE} -static-libgcc -static-libstdc++")
+
 # WP - force this option on (only relevant when building .deb)
 option(withLibs "withLibs" ON)
 
