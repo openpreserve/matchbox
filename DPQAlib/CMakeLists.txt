@@ -7,7 +7,8 @@ FILE (GLOB DPQAlib_FILES  *.cpp)
 
 set(DPQAlibSrcs ${DPQAlib_FILES})
 
-add_library(DPQAlib SHARED ${DPQAlibSrcs})
+# using a shared library has problems in windows
+add_library(DPQAlib STATIC ${DPQAlibSrcs})
 target_link_libraries(DPQAlib ${OpenCV_LIBRARIES})
 target_link_libraries(DPQAlib ${Boost_LIBRARIES})
 
