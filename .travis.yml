@@ -1,38 +1,31 @@
 language: cpp
 compiler:
   - gcc
+before_install:
+# not using OpenCV 2.4.7.exe as it does not include mingw libs
+  - wget http://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.4.6/OpenCV-2.4.6.0.exe/download
+  - wget ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/boost/libboost1.53/libboost1.53-1.53.0-2.tar.bz2
+  - wget ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/boost/libboost-devel/libboost-devel-1.53.0-2.tar.bz2
+# will probably need other libraries
 install:
-# We will install these headers as we need boost.  The opencv packages aren't currently used but kept here for future use
-# opencv ubuntu packages: libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
-# remove the above packages so FindOpenCV.cmake doesn't get confuseds
-  - sudo apt-get remove libopencv-dev libcv-dev libopencv-features2d-dev libhighgui-dev 
-  - sudo apt-get install libboost-all-dev zlib1g-dev libjpeg8-dev libpng12-dev libtiff4-dev libjasper-dev libgtk2.0-dev python-numpy libopenexr-dev
-  - OPENCVVER=2.4.6.1
-# Extracting the tar file has to be on the same line as the download!
-  - wget -O opencv-${OPENCVVER}.tar.gz http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/${OPENCVVER}/opencv-${OPENCVVER}.tar.gz && tar zxf opencv-${OPENCVVER}.tar.gz
-  - mkdir opencv-bin
-  - cd opencv-$OPENCVVER
-  - mkdir build
-  - cd build
-  - cmake .. -DCMAKE_INSTALL_PREFIX=../../opencv-bin
-  - make
-  - make install
-  - cd ../..
+  - 7z e OpenCV-2.4.6.0.exe
+  - cp -rf build/include/ /usr/i586-mingw32msvc/
+  - cp -rf build/x86/mingw/* /usr/i586-mingw32msvc/
+  - sudo apt-get update
+  - sudo apt-get install mingw32
+  - pushd .
+  - TBZ2DIR=`pwd`
+  - cd /usr/i586-mingw32msvc/
+  - sudo tar jxf $TBZ2DIR/libboost1.53-*.tar.bz2
+  - sudo tar jxf $TBZ2DIR/libboost-devel-*.tar.bz2
+  - popd
 before_script:
-  - mkdir build
-  - cd build
 # This is the path to the installed OpenCVConfig.cmake
 # NOTE: a *full* path to the file should be passed to cmake, hence the addition of `pwd`
-  - pwd
-  - cmake .. -DOpenCV_DIR=`pwd`/../opencv-bin/share/OpenCV/
+  - mkdir build && cd build
+  - cmake .. -DCMAKE_TOOLCHAIN_FILE=../mingw32-cross-compile.cmake -DOpenCV_DIR=/usr/i586-mingw32msvc/lib/
 script: 
   - make
-  - cpack
+  - cpack -G TGZ
 after_success:
-  - sudo dpkg -i scape-matchbox*deb
-  - ldd /usr/bin/mb_extractfeatures
-  - /usr/bin/mb_extractfeatures --help
-  - ldd /usr/bin/mb_compare
-  - /usr/bin/mb_compare --help
-  - ldd /usr/bin/mb_train
-  - /usr/bin/mb_train --help
+  - echo 
