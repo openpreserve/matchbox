@@ -11,8 +11,11 @@ before_install:
   - sudo apt-get install p7zip
 install:
   - p7zip -d $OPENCVEXE.7z
-  - cp -rf opencv/build/include/ /usr/i586-mingw32msvc/
-  - cp -rf opencv/build/x86/mingw/* /usr/i586-mingw32msvc/
+  - sudo cp -rf opencv/build/include/ /usr/i586-mingw32msvc/
+  - sudo cp -rf opencv/build/x86/mingw/* /usr/i586-mingw32msvc/
+  # fix permissions
+  - sudo chmod a+rx -R /usr/i586-mingw32msvc/include/opencv
+  - sudo chmod a+rx -R /usr/i586-mingw32msvc/include/opencv2
   - sudo apt-get update
   - sudo apt-get install mingw32
   - pushd .
