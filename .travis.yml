@@ -20,6 +20,8 @@ install:
   # boost needs cygwin1.dll from ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/cygwin/cygwin-1.7.25-1.tar.bz2
   # and cyggcc_s-1.dll from ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/gcc/libgcc1/libgcc1-4.7.3-1.tar.bz2
   # and cygstdc++-6.dll from ftp://mirrors.kernel.org/sourceware/cygwin/x86/release/gcc/libstdc++6/libstdc++6-4.7.3-1.tar.bz2
+  # opencv needs libgcc_s_dw2-1.dll from mingw which can be found here: http://sourceforge.net/projects/mingw/files/MinGW/Base/gcc/Version4/gcc-4.8.1-4/gcc-core-4.8.1-4-mingw32-dll.tar.lzma/download
+  # when using gcc<4.5 you might need libstdc++.dll from here: http://sourceforge.net/projects/mingw/files/MinGW/Base/gcc/Version4/gcc-4.8.1-4/gcc-c%2B%2B-4.8.1-4-mingw32-dll.tar.lzma/download
   - popd
   - p7zip -d $OPENCVEXE.7z
   # copy opencv in to single location
