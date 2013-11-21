@@ -3,9 +3,9 @@
 *Matchbox* provides decision-making support for quality assurance tasks concerning document image collections employing image processing techniques.
 
 ### What does matchbox do?
-*Matchbox* is an open source tool [1] providing decision-making support for quality assurance tasks concerning document image collections (e.g. duplicate detection in or across document image collections). It provides functions to identify duplicated content, even where files are different, e.g. in format, size, rotated, cropped, colour-enhanced. A main advantage is its general approach that works where OCR will not, for example images of handwriting or music scores. Further  Matchbox is useful in assembling collections from multiple sources, and identifying missing files. 
+*Matchbox* is an [open source tool](https://github.com/openplanets/matchbox) providing decision-making support for quality assurance tasks concerning document image collections (e.g. duplicate detection in or across document image collections). It provides functions to identify duplicated content, even where files are different, e.g. in format, size, rotated, cropped, colour-enhanced. A main advantage is its general approach that works where OCR will not, for example images of handwriting or music scores. Further  Matchbox is useful in assembling collections from multiple sources, and identifying missing files. 
 
-*Matchbox* development was partially supported by the [SCAPE][2] Project. The SCAPE project is co-funded by the European Union under FP7 ICT-2009.4.1 (Grant Agreement number 270137).
+*Matchbox* development was partially supported by the [SCAPE](http://www.scape-project.eu/) Project. The SCAPE project is co-funded by the European Union under FP7 ICT-2009.4.1 (Grant Agreement number 270137).
 
 ### What are the benefits for end user?
 
@@ -44,7 +44,7 @@ To install you need:
 
 | Version | Size   | SHA1                                                    |                      |
 |---------|--------|---------------------------------------------------------|----------------------|
-| v1.0    | 23.6 MB| <small>1b34d11f66fe4b847f271a5aaaabb02c7917690c</small> |[download]            |
+| v1.0    | 23.6 MB| <small>1b34d11f66fe4b847f271a5aaaabb02c7917690c</small> |[download](https://github.com/openplanets/matchbox/archive/master.zip)            |
 
 ### Install instructions
 
