@@ -99,8 +99,8 @@ Duplicate detection is the task of detecting duplicates within an image collecti
 
 ### Publications
 
-* R. Huber-Mork and A. Schindler. Quality assurance for document image collections in digital preservation. In Proc. of the 14th Intl. Conf. on ACIVS (ACIVS 2012), volume 7517 of LNCS, pages 108-119, Brno, Czech Republic, September 4-7 2012. Springer.
-* R. Huber-Mork, A. Schindler, and S. Schlarb. Duplicate deterction for quality assurcance of document image collections. In In iPRES 2012 - Proceedings of the 9th International Conference on Preservation of Digital Objects, pages 136-143, Toronto, Canada, October 1-5 2012.
+* R. Huber-Mörk and A. Schindler. Quality assurance for document image collections in digital preservation. In Proc. of the 14th Intl. Conf. on ACIVS (ACIVS 2012), volume 7517 of LNCS, pages 108-119, Brno, Czech Republic, September 4-7 2012. Springer.
+* R. Huber-Mörk, A. Schindler, and S. Schlarb. Duplicate deterction for quality assurcance of document image collections. In In iPRES 2012 - Proceedings of the 9th International Conference on Preservation of Digital Objects, pages 136-143, Toronto, Canada, October 1-5 2012.
 * R. Graf, R. Huber-Mörk, A. Schindler, S. Schlarb. An expert system for quality assurance of document image collections. EuroMed 2012, Limassol, Cyprus; 29.10.2012 - 03.11.2012; in: Progress in Cultural Heritage Preservation, Springer, Berlin, Heidelberg (2012), pages 251-260.
 
 ### Acknowledgements
