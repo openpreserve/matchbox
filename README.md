@@ -58,7 +58,7 @@ Please refere to the INSTALL file in the source directory [1].
 
 This tool extracts features from images. The set of features implemented  contains  the basic image metadata extraction, the basic image processing features Color Histograms and Image Profiles, as well as more complex features based on interest point detection.
 	
-Features can be either extracted all at once or by distinctivly specifiyng the required feature. Extracted features are either stored to the same directory of the corresponding image, or to a specified directory.  Features  can  be  stored in gzipped xml format or in binary  format. Binary storage  enables  faster processing while xml provides more flexibility for data processing with third party tools.
+Features can be either extracted all at once or by distinctively specifiyng the required feature. Extracted features are either stored to the same directory of the corresponding image, or to a specified directory.  Features  can  be  stored in gzipped xml format or in binary  format. Binary storage  enables  faster processing while xml provides more flexibility for data processing with third party tools.
 	
 The stored feature filenames have the format:
 	
@@ -114,7 +114,7 @@ This tool is supported by the [Open Planets Foundation](http://www.openplanetsfo
 ## Command line use
 
 ### Sample usage
-sudo python2.7 ./FindDuplicates.py /home/matchbox/matchbox-data/ all
+python2.7 ./FindDuplicates.py /home/matchbox/matchbox-data/ all
 
 ### Output of duplicates detection script is a list of possible duplicates (e.g. document 10 is a duplicate candidat for page 2)
 [1 of 20] 1
