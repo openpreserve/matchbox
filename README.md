@@ -1,9 +1,29 @@
 #matchbox
 
-*Matchbox* provides decision-making support for quality assurance tasks concerning document image collections employing image processing techniques.
+*Matchbox* detects duplicate pages in digitised document collection.
 
 ### What does matchbox do?
-*Matchbox* is an [open source tool](https://github.com/openplanets/matchbox) providing decision-making support for quality assurance tasks concerning document image collections (e.g. duplicate detection in or across document image collections). It provides functions to identify duplicated content, even where files are different, e.g. in format, size, rotated, cropped, colour-enhanced. A main advantage is its general approach that works where OCR will not, for example images of handwriting or music scores. Further  Matchbox is useful in assembling collections from multiple sources, and identifying missing files. 
+*Matchbox* is an [open source tool](https://github.com/openplanets/matchbox) providing decision-making support for quality assurance tasks concerning document image collections. The tool aims at comparing digitized text documents.
+ A main advantage is its general approach that works where OCR will not, for example images of handwriting or music scores. 
+ 
+### Use cases for *Matchbox* image based tool
+* detect duplicates in or across document image collections
+* compare two image documents for similarity (1 - similar, 0 - not similar)
+* support collections assembling from multiple sources
+* identify missing files in a document collection
+
+### *Matchbox* advantages
+* reduces involvement of a human expert
+* automated analysis with *Matchbox* is faster then human expert
+* reduces costs for quality assurance processes
+* works also with handwritten text
+* works also for music scores
+* works for mathematical expressions
+* works independent from file format
+* works independent from file size
+* works independent from text rotation
+* works independent from text cropping
+* works independent from text colour
 
 *Matchbox* development was partially supported by the [SCAPE](http://www.scape-project.eu/) Project. The SCAPE project is co-funded by the European Union under FP7 ICT-2009.4.1 (Grant Agreement number 270137).
 
@@ -122,9 +142,9 @@ python2.7 ./FindDuplicates.py /home/matchbox/matchbox-data/ all
 [3 of 20] 3
 
 ### SSIM comparison sample
-extractfeatures.exe <bild1>
-extractfeatures.exe <bild2>
-compare <bild1>.feat.xml <bild2>.feat.xml
+extractfeatures.exe <img1>
+extractfeatures.exe <img2>
+compare <img1>.feat.xml <img2>.feat.xml
 
 ### Output of SSIM comparison with value between 0 and 1, where 1 means high similarity
 <SIFTCompairison>
