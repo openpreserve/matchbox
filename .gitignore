@@ -32,6 +32,10 @@ nbactions.xml
 ##########################
 target
 
+# Vagrant directory #
+#####################
+.vagrant
+
 # Compiled Source #
 ###################
 *.com
