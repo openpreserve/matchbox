@@ -34,7 +34,10 @@ target
 
 # Vagrant directory #
 #####################
+# vagrant hidden machine directory
 .vagrant
+# vagrant / project build directory
+build
 
 # Compiled Source #
 ###################
