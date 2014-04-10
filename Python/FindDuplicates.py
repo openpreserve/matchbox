@@ -34,9 +34,9 @@ configs = {}
 # Linux is the standard configuration
 # all binaries should be installed on the target machine through "make install"
 configs["Linux"] = {}
-configs["Linux"]["BIN_EXTRACTFEATURES"] = "mb_extractfeatures"
-configs["Linux"]["BIN_COMPARE"]         = "mb_compare"
-configs["Linux"]["BIN_TRAIN"]           = "mb_train"
+configs["Linux"]["BIN_EXTRACTFEATURES"] = "extractfeatures"
+configs["Linux"]["BIN_COMPARE"]         = "compare"
+configs["Linux"]["BIN_TRAIN"]           = "train"
 
 # === Development configurations ===
 # these configs should be deleted after development
