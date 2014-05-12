@@ -4,9 +4,9 @@ Matchbox
 
 What is Matchbox?
 -----------------
-*“Help! I have a million images and I’m sure there are duplicates, but which are they?”*
+*Help! I have a million images and I'm sure there are duplicates, but which are they?*
 
-Checking to identify duplicates manually is a very time-consuming and error-prone process. You need a tool to help you – Matchbox.
+Checking to identify duplicates manually is a very time-consuming and error-prone process. You need a tool to help you: Matchbox.
 
 Matchbox is an open source tool which:
 
@@ -33,12 +33,12 @@ Examples
 
 There are numerous situations in which you may need to identify duplicate images in collections, for example:
 
-* to ensure that a page or book has not been digitised twice
-* to discover whether a master and service set of digitised images represent the same set of originals
-* to confirm that all scans have gone through post-scan image processing.
+* to ensure that a page or book has not been digitized twice
+* to discover whether a master and service set of digitized images represent the same set of originals
+* to confirm that all scans have gone through post-scan image processing
 
 Credits
 -------
 * This work was partially supported by the [SCAPE project](http://scape-project.eu). The SCAPE project is co-funded 
 by the European Union under FP7 ICT-2009.4.1 (Grant Agreement number 270137)
-* Austrian Institute of Technology - 2013: Alexander Schindler <alexander.schindler@ait.ac.at>, Reinhold Huber-Mörk <Reinhold.Huber-Moerk@ait.ac.at> 
+* Austrian Institute of Technology - 2013: Alexander Schindler <alexander.schindler@ait.ac.at>, Reinhold Huber-Mï¿½rk <Reinhold.Huber-Moerk@ait.ac.at> 
