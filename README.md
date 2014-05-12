@@ -28,7 +28,7 @@ Using Matchbox
 
 ### Matchbox Tools
 
-* extractfeatures
+* extract_features
 
 This tool extracts features from images. The set of features implemented  contains  the basic image metadata extraction, the basic image processing features Color Histograms and Image Profiles, as well as more complex features based on interest point detection.
 	
@@ -49,7 +49,7 @@ The resulting similarity estimation is written in xml format to standard output 
 	
 * train
 
-The train tool is a specialized tool to create visual vocabularies based on visual bag-of-words. A visual bag-of-words is a pendant to the bag-of-words in classical information retrieval, where each text document is represented as a histogram of its distinctive word occurnces. This approach  has  been  adopted  in image processing based on features from interest point detectors - especially SIFT features.
+The train tool is a specialized tool to create visual vocabularies based on visual bag-of-words. A visual bag-of-words is a pendant to the bag-of-words in classical information retrieval, where each text document is represented as a histogram of its distinctive word occurences. This approach  has  been  adopted  in image processing based on features from interest point detectors - especially SIFT features.
 	
 The train tool takes a list of SIFT descriptors and applies a clustering algorithm onto it. The calculated centroids represent the visual vocabulary that will be used in further processing of certain workflows.
 	
@@ -60,13 +60,13 @@ The train tool takes a list of SIFT descriptors and applies a clustering algorit
 
 Duplicate detection is the task of detecting duplicates within an image collection.
 	
-1. extract SIFTComaparison features of all images
+1. extract SIFTComparison features of all images
 2. train a visual vocabulary on the extracted features
-3. extract BoWHistograms using the vocabulary and all extracted SIFTCompairison features
+3. extract BoWHistograms using the vocabulary and all extracted SIFTComparison features
 4. create a similarity matrix for the collection using compare on all BoWHistogram features
-5. take the top-most similar images for each image and compare their SIFTComparison features.
-6. Set a threshold based on the retrieved data.
-7. images with an SSIM exceeding the threshold are considered to be duplicates.
+5. take the top-most similar images for each image and compare their SIFTComparison features
+6. Set a threshold based on the retrieved data
+7. images with an SSIM exceeding the threshold are considered to be duplicates
 
 Command line use
 ----------------
@@ -75,7 +75,7 @@ Command line use
 
 	python2.7 ./FindDuplicates.py /home/matchbox/matchbox-data/ all
 
-### Output of duplicates detection script is a list of possible duplicates (e.g. document 10 is a duplicate candidat for page 2)
+### Output of duplicates detection script is a list of possible duplicates (e.g. document 10 is a duplicate candidate for page 2)
 
 	[1 of 20] 1
 	[2 of 20] 2 => [10]
