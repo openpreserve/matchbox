@@ -35,24 +35,29 @@
 
   <!-- Initializer -->
   <script>
-    Flatdoc.run({
-      fetcher: Flatdoc.github('openplanets/matchbox')
-    });
-  </script>
+    var pageUpdate = {
+      loadContent : function(file) {
+        Flatdoc.run({
+          fetcher: Flatdoc.github('openplanets/matchbox', file)
+        })
+      }
+    };
 </head>
-<body role='flatdoc'>
+<body class='no-literate' role='flatdoc'>
 
   <div class='header'>
     <div class='left'>
       <h1>Matchbox</h1>
       <ul>
-        <li><a href='https://github.com/USER/REPO'>View on GitHub</a></li>
-        <li><a href='https://github.com/USER/REPO/issues'>Issues</a></li>
+        <li><a href="#" onClick="pageUpdate.loadContent('ABOUT.md'); return false;">About</a></li>
+        <li><a href="#" onClick="pageUpdate.loadContent('README.md'); return false;">Usage</a></li>
+        <li><a href='https://github.com/openplanets/matchbox'>View on GitHub</a></li>
+        <li><a href='https://github.com/openplanets/matchbox'>Issues</a></li>
       </ul>
     </div>
     <div class='right'>
       <!-- GitHub buttons: see http://ghbtns.com -->
-      <iframe src="http://ghbtns.com/github-btn.html?user=USER&amp;repo=REPO&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=openplanets&amp;repo=matchbox&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
     </div>
   </div>
 
