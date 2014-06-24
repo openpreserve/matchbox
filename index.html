@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--
 
@@ -30,29 +31,38 @@
   <script src='http://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/script.js'></script>
 
   <!-- Meta -->
-  <meta content="Matchbox" property="og:title">
-  <meta content="Detects duplicate pages in your digitized collections." name="description">
+  <meta content="matchbox" property="og:title">
+  <meta content="About the matchbox project." name="description">
+  <link type="image/x-icon" href="http://www.scape-project.eu/wp-content/themes/medani/images/favicon.ico" rel="shortcut icon" />
 
   <!-- Initializer -->
   <script>
-    Flatdoc.run({
-      fetcher: Flatdoc.github('openplanets/matchbox')
-    });
+    var pageUpdate = {
+      loadContent : function(file) {
+        Flatdoc.run({
+          fetcher: Flatdoc.github('openplanets/matchbox', file)
+        })
+      }
+    };
+    
+    pageUpdate.loadContent('ABOUT.md')
   </script>
 </head>
-<body role='flatdoc'>
+<body class='no-literate' role='flatdoc'>
 
   <div class='header'>
     <div class='left'>
       <h1>Matchbox</h1>
       <ul>
-        <li><a href='https://github.com/USER/REPO'>View on GitHub</a></li>
-        <li><a href='https://github.com/USER/REPO/issues'>Issues</a></li>
+        <li><a href="#" onClick="pageUpdate.loadContent('ABOUT.md'); return false;">About</a></li>
+        <li><a href="#" onClick="pageUpdate.loadContent('README.md'); return false;">Usage</a></li>
+        <li><a href="https://github.com/openplanets/matchbox" target="_blank">View on GitHub</a></li>
+        <li><a href="https://github.com/openplanets/matchbox/issues" target="_blank">Issues</a></li>
       </ul>
     </div>
     <div class='right'>
       <!-- GitHub buttons: see http://ghbtns.com -->
-      <iframe src="http://ghbtns.com/github-btn.html?user=USER&amp;repo=REPO&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=openplanets&amp;repo=matchbox&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
     </div>
   </div>
 
