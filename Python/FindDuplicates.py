@@ -7,7 +7,7 @@
 # @author : Alexander Schindler                            #
 # @contact: Alexander.Schindler@ait.ac.at                  #
 #                                                          #
-# @version:                                                # 
+# @version: 1.0.0                                          # 
 #                                                          #
 # -------------------------------------------------------- #
 #                                                          #
@@ -37,18 +37,6 @@ configs["Linux"] = {}
 configs["Linux"]["BIN_EXTRACTFEATURES"] = "mb_extractfeatures"
 configs["Linux"]["BIN_COMPARE"]         = "mb_compare"
 configs["Linux"]["BIN_TRAIN"]           = "mb_train"
-
-# === Development configurations ===
-# these configs should be deleted after development
-configs["PC-Alex"] = {}
-configs["PC-Alex"]["BIN_EXTRACTFEATURES"]     = "D:/WORK/AIT_TFS/s3ms16.d03.arc.local/SCAPE/SCAPE QA/Release/extractfeatures.exe"
-configs["PC-Alex"]["BIN_COMPARE"]             = "D:/WORK/AIT_TFS/s3ms16.d03.arc.local/SCAPE/SCAPE QA/Release/compare.exe"
-configs["PC-Alex"]["BIN_TRAIN"]               = "D:/WORK/AIT_TFS/s3ms16.d03.arc.local/SCAPE/SCAPE QA/Release/train.exe"
-
-configs["PC-Reinhold"] = {}
-configs["PC-Reinhold"]["BIN_EXTRACTFEATURES"] = "C:/Dokumente und Einstellungen/huber-moerkr/Eigene Dateien/TFS/SCAPE/SCAPE QA/Release/extractfeatures.exe"
-configs["PC-Reinhold"]["BIN_COMPARE"]         = "C:/Dokumente und Einstellungen/huber-moerkr/Eigene Dateien/TFS/SCAPE/SCAPE QA/Release/compare.exe"
-configs["PC-Reinhold"]["BIN_TRAIN"]           = "C:/Dokumente und Einstellungen/huber-moerkr/Eigene Dateien/TFS/SCAPE/SCAPE QA/Release/train.exe"
 
 # === Classes ===================================
 
