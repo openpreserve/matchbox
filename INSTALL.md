@@ -101,6 +101,10 @@ code directory and enter
 	make sudo 
 	make install 
 
+In some cases it might be necessary to copy the files 'MatchboxLib.py' and 
+'FindDuplicates.py' manually from the 'Python' source directory to 
+'/usr/bin' or '/usr/local/bin' and set the executable flag appropriately. 
+	
 If the compilation succeeded, the commandline tools extractfeatures, 
 train, compare, FindDuplicates.py and CompareCollections.py are available. 
 
