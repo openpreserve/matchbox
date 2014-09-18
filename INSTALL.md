@@ -58,8 +58,8 @@ diverse use cases and workflows of document image quality assurance.
 
 Modules required by Matchbox: 
 
-	* Numpy - Numerical Python 
-	* Argparse - Parser for command-line options, arguments and sub-commands
+* Numpy - Numerical Python 
+* Argparse - Parser for command-line options, arguments and sub-commands
 
 ##### Installing Python
 
@@ -83,7 +83,7 @@ free) can be used to build the code.
 
 #### Optional Packages
 
- * Intel Threading Building Blocks Library (TBB)
+* Intel Threading Building Blocks Library (TBB)
 
 
 ### Installing Matchbox 

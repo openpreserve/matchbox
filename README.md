@@ -21,7 +21,7 @@ To install you need:
 
 ### Installing Matchbox
 
-Please refere to the INSTALL file in the source directory [1].
+Please refere to the INSTALL.md file in this repository.
 
 Using Matchbox
 --------------
